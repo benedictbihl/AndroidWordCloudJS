@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Receive input from TextInputScreen
         Bundle cloudTextData = getIntent().getExtras();
 
         if (cloudTextData == null){
@@ -26,17 +27,19 @@ public class MainActivity extends AppCompatActivity {
         cloudText = cloudTextData.getString("CloudText");
         maxWords =  cloudTextData.getString("MaxWords");
         rotateWords = cloudTextData.getString("RotateWords");
+
         WebView webView = (WebView)findViewById(R.id.cloud);
         WebAppInterface webAppInterface = new WebAppInterface();
 
         webView.loadUrl("file:///android_asset/www/CloudView.html");
         webView.getSettings().setJavaScriptEnabled(true);
-        webView.addJavascriptInterface(webAppInterface, "android");
+        webView.addJavascriptInterface(webAppInterface, "JsData");
     }
-    class WebAppInterface {
 
+    class WebAppInterface {
+        //Make method available to JS in webview and create a json String with the received Input
         @android.webkit.JavascriptInterface
-        public String loadText (){
+        public String loadData (){
             String [] jSData = {cloudText, maxWords, rotateWords};
             String json = new Gson().toJson(jSData);
             return json;

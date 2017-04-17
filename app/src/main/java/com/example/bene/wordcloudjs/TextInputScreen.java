@@ -23,16 +23,21 @@ public class TextInputScreen extends AppCompatActivity implements View.OnClickLi
     public void onClick(View v) {
         Intent intent = new Intent(this,MainActivity.class);
 
+        //retrieve Inputs
         final EditText textInput = (EditText) findViewById(R.id.textInput);
         final EditText maxWordsInput = (EditText) findViewById(R.id.maxWordsInput);
         final Switch rotateWords = (Switch) findViewById(R.id.rotateSwitch);
 
+        //make them to Strings
         String textInputString = textInput.getText().toString();
         String maxWordsString = maxWordsInput.getText().toString();
         String rotateWordsString = "false";
+
         if (rotateWords.isChecked()){
             rotateWordsString = "true";
         }
+
+        //send with intent onClick
         intent.putExtra("CloudText",textInputString);
         intent.putExtra("MaxWords",maxWordsString);
         intent.putExtra("RotateWords", rotateWordsString);

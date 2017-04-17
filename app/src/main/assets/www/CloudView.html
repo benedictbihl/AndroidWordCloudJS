@@ -5,9 +5,9 @@
     <script src="zingchart.min.js"></script>
 <script>
 
-    function testSwap() {
+    function createCloud() {
 
-        var textLoaded = JSON.parse(window.android.loadText());
+        var textLoaded = JSON.parse(window.JsData.loadData());
 
         var myConfig = {
             type: 'wordcloud',
@@ -33,9 +33,9 @@
     <link rel="stylesheet" type="text/css" href="CloudView.css">
 </head>
 
-<body onload="testSwap()">
+<body onload="createCloud()">
 <div id="myChart"></div>
-<input type="button" value="Say hello" onClick="testSwap()" />
+
 
 </body>
 
