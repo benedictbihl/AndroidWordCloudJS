@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Word Cloud Generator</string>
+    <string name="textView1">This Word Cloud Generator creates a cloud based upon the text you can enter below</string>
+    <string name="BtnTxt">Create Word Cloud</string>
+    <string name="RotateSwitch">Rotate Words</string>
+    <string name="title_activity_settings">Settings</string>
+    <string name="maxWords">Max. Words</string>
+
+
+</resources>

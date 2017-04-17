@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="zingchart.min.js"></script>
+<script>
+
+    function testSwap() {
+
+        var textLoaded = JSON.parse(window.android.loadText());
+
+        var myConfig = {
+            type: 'wordcloud',
+            options: {
+                text: textLoaded[0],
+                minLength: 4,
+                maxItems: parseInt(textLoaded[1]),
+                rotate: textLoaded[2]
+            }
+        };
+
+        zingchart.render({
+            id: 'myChart',
+            data: myConfig,
+            height: 400,
+            width: '100%'
+        });
+
+    }
+
+</script>
+
+    <link rel="stylesheet" type="text/css" href="CloudView.css">
+</head>
+
+<body onload="testSwap()">
+<div id="myChart"></div>
+<input type="button" value="Say hello" onClick="testSwap()" />
+
+</body>
+
+</html>
